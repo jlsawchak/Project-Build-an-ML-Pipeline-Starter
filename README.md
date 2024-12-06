@@ -1,7 +1,15 @@
+#repository
+https://github.com/jlsawchak/Project-Build-an-ML-Pipeline-Starter
+
+#wandb
+https://wandb.ai/jsm3219-western-governors-university/nyc_airbnb?nw=nwuserjsm3219
+
+
+
 # Build an ML Pipeline for Short-Term Rental Prices in NYC
-You are working for a property management company renting rooms and properties for short periods of 
-time on various rental platforms. You need to estimate the typical price for a given property based 
-on the price of similar properties. Your company receives new data in bulk every week. The model needs 
+You are working for a property management company renting rooms and properties for short periods of
+time on various rental platforms. You need to estimate the typical price for a given property based
+on the price of similar properties. Your company receives new data in bulk every week. The model needs
 to be retrained with the same cadence, necessitating an end-to-end pipeline that can be reused.
 
 In this project you will build such a pipeline.
@@ -31,7 +39,7 @@ and go into the repository:
 ```
 cd Project-Build-an-ML-Pipeline-Starter
 ```
-Commit and push to the repository often while you make progress towards the solution. Remember 
+Commit and push to the repository often while you make progress towards the solution. Remember
 to add meaningful commit messages.
 
 ### Create environment
@@ -44,8 +52,8 @@ file provided in the root of the repository and activate it:
 ```
 
 ### Get API key for Weights and Biases
-Let's make sure we are logged in to Weights & Biases. Get your API key from W&B by going to 
-[https://wandb.ai/authorize](https://wandb.ai/authorize) and click on the + icon (copy to clipboard), 
+Let's make sure we are logged in to Weights & Biases. Get your API key from W&B by going to
+[https://wandb.ai/authorize](https://wandb.ai/authorize) and click on the + icon (copy to clipboard),
 then paste your key into this command:
 
 ```bash
@@ -60,19 +68,19 @@ wandb: Appending key for api.wandb.ai to your netrc file: /home/[your username]/
 
 ### The configuration
 As usual, the parameters controlling the pipeline are defined in the ``config.yaml`` file defined in
-the root of the starter kit. We will use Hydra to manage this configuration file. 
-Open this file and get familiar with its content. Remember: this file is only read by the ``main.py`` script 
+the root of the starter kit. We will use Hydra to manage this configuration file.
+Open this file and get familiar with its content. Remember: this file is only read by the ``main.py`` script
 (i.e., the pipeline) and its content is
 available with the ``go`` function in ``main.py`` as the ``config`` dictionary. For example,
 the name of the project is contained in the ``project_name`` key under the ``main`` section in
-the configuration file. It can be accessed from the ``go`` function as 
+the configuration file. It can be accessed from the ``go`` function as
 ``config["main"]["project_name"]``.
 
-NOTE: do NOT hardcode any parameter when writing the pipeline. All the parameters should be 
+NOTE: do NOT hardcode any parameter when writing the pipeline. All the parameters should be
 accessed from the configuration file.
 
 ### Running the entire pipeline or just a selection of steps
-In order to run the pipeline when you are developing, you need to be in the root of the starter kit, 
+In order to run the pipeline when you are developing, you need to be in the root of the starter kit,
 then you can execute as usual:
 
 ```bash
@@ -81,7 +89,7 @@ then you can execute as usual:
 This will run the entire pipeline.
 
 When developing it is useful to be able to run one step at the time. Say you want to run only
-the ``download`` step. The `main.py` is written so that the steps are defined at the top of the file, in the 
+the ``download`` step. The `main.py` is written so that the steps are defined at the top of the file, in the
 ``_steps`` list, and can be selected by using the `steps` parameter on the command line:
 
 ```bash
@@ -120,7 +128,7 @@ _ = mlflow.run(
                 },
             )
 ```
-where `config['main']['components_repository']` is set to 
+where `config['main']['components_repository']` is set to
 [https://github.com/udacity/Project-Build-an-ML-Pipeline-Starter/tree/main/components](https://github.com/udacity/Project-Build-an-ML-Pipeline-Starter/tree/main/components).
 You can see the parameters that they require by looking into their `MLproject` file:
 
